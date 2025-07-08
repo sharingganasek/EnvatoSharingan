@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envato Sharingan // Status: Online</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for the "Pro Programmer" theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        /* Animated Gradient & Grid Background */
+        .gradient-bg {
+            background: linear-gradient(-45deg, #0d1117, #161b22, #010409, #0d1117);
+            background-size: 400% 400%;
+            animation: gradientAnimation 20s ease infinite;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.5;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Enhanced Glassmorphism Card with Shine Effect */
+        .card {
+            background: rgba(13, 17, 23, 0.5);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 30px -10px rgba(0, 0, 0, 0.3);
+            border-color: rgba(66, 153, 225, 0.4);
+        }
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        .card:hover::before {
+            left: 100%;
+        }
+
+        /* Pulse animation for the "Ready" status */
+        .status-indicator::before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-right: 12px;
+            border-radius: 50%;
+            background-color: #38a169; /* Green-600 */
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 5px #38a169, 0 0 10px #38a169;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Terminal Window Style for Fun Fact */
+        .terminal-window {
+            background: #010409;
+            border: 1px solid #30363d;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .terminal-header {
+            background: #161b22;
+            padding: 0.5rem;
+            border-bottom: 1px solid #30363d;
+            display: flex;
+            align-items: center;
+        }
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        #funFactDisplay {
+            font-family: 'Fira Code', monospace;
+            color: #c9d1d9;
+            text-align: left;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .blinking-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1.2em;
+            background-color: #58a6ff;
+            animation: blink 1s step-end infinite;
+            vertical-align: bottom;
+        }
+        @keyframes blink {
+            from, to { background-color: transparent; }
+            50% { background-color: #58a6ff; }
+        }
+        
+        /* Neon Button Effect */
+        .neon-button {
+            transition: all 0.3s ease;
+        }
+        .neon-button:hover {
+            box-shadow: 0 0 5px, 0 0 15px, 0 0 25px;
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+    <div class="gradient-bg"></div>
+
+    <main class="relative min-h-screen w-full flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
+        <!-- Main Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-4 text-blue-400"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                Envato Sharingan
+            </h1>
+            <p class="mt-4 text-lg sm:text-xl font-semibold status-indicator text-green-400">
+                Layanan Siap Digunakan!
+            </p>
+        </div>
+
+        <div class="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- How to Use Card -->
+            <div class="card p-8 flex flex-col items-center text-center">
+                <div class="bg-blue-500/10 p-4 rounded-full mb-4 border border-blue-500/30">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-300"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-white mb-3">Prosedur Penggunaan</h2>
+                <p class="text-slate-400 mb-6">
+                    Kirimkan tautan aset yang Anda butuhkan ke admin via WhatsApp untuk eksekusi.
+                </p>
+                <a href="https://wa.me/6285117159634" target="_blank" class="w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center hover:bg-green-500 neon-button" style="--tw-shadow-color: #38a169;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="mr-3"><path d="M16.63,14.03C16.36,14.4,15.1,15.5,14.83,15.75C14.56,16,14.28,16.05,14,15.9C13.73,15.75,12.93,15.5,11.96,14.63C10.8,13.58,10.1,12.45,9.9,12.18C9.73,11.9,9.87,11.68,10.05,11.5C10.2,11.33,10.38,11.08,10.55,10.88C10.73,10.68,10.8,10.5,10.68,10.28C10.58,10.05,10.1,8.88,9.88,8.35C9.68,7.83,9.45,7.9,9.28,7.9H8.95C8.7,7.9,8.35,8.05,8.05,8.35C7.75,8.65,7.1,9.23,7.1,10.38C7.1,11.53,8.1,12.6,8.25,12.78C8.4,12.95,10.25,15.75,13,17.03C15.75,18.3,15.75,17.8,16.2,17.75C16.65,17.7,17.6,17.13,17.83,16.5C18.05,15.88,18.05,15.35,18,15.25C17.9,15.15,17.75,15.1,17.5,15C17.25,14.9,16.9,13.65,16.63,14.03Z M12,2A10,10 0 0 0 2,12A10,10 0 0 0 12,22C13.65,22 15.23,21.53 16.58,20.6L21.43,22L20.58,17.3C21.53,15.88 22,14.05 22,12A10,10 0 0 0 12,2Z"/></svg>
+                    Hubungi Admin
+                </a>
+                <div class="mt-5 w-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-300 font-semibold text-sm rounded-lg py-2 px-4">
+                    Batas Unduhan: 10 Aset/Hari
+                </div>
+            </div>
+
+            <!-- Fun Fact Card -->
+            <div class="card p-0 flex flex-col text-center">
+                <div class="terminal-window h-full flex flex-col">
+                    <div class="terminal-header">
+                        <div class="terminal-button" style="background-color: #ff5f56;"></div>
+                        <div class="terminal-button" style="background-color: #ffbd2e;"></div>
+                        <div class="terminal-button" style="background-color: #27c93f;"></div>
+                    </div>
+                    <div class="p-6 flex flex-col items-center justify-center flex-grow">
+                        <h2 class="text-2xl font-bold text-white mb-4">Terminal Fakta</h2>
+                        <div id="funFactDisplay" class="w-full min-h-[120px] bg-black/30 rounded p-4 mb-6 text-slate-200 transition-all duration-300">
+                            <span class="text-gray-500">> Menunggu perintah...</span>
+                        </div>
+                        <button id="generateFactButton" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center hover:bg-blue-500 disabled:bg-slate-700 disabled:cursor-wait neon-button" style="--tw-shadow-color: #2563eb;">
+                            $ Jalankan Perintah
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center mt-12 text-slate-500 text-sm">
+            <p>&copy; 2025 Envato Sharingan. Dibuat dengan ☕ dan Kode.</p>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const generateFactButton = document.getElementById('generateFactButton');
+            const funFactDisplay = document.getElementById('funFactDisplay');
+            const MY_GEMINI_API_KEY = ""; // Provided by Canvas at runtime
+
+            let isTyping = false;
+
+            function typeWriter(text, i = 0) {
+                if (i === 0) {
+                    funFactDisplay.innerHTML = '> ';
+                }
+                if (i < text.length) {
+                    isTyping = true;
+                    funFactDisplay.innerHTML += text.charAt(i);
+                    setTimeout(() => typeWriter(text, i + 1), 25);
+                } else {
+                    funFactDisplay.innerHTML += '<span class="blinking-cursor"></span>';
+                    isTyping = false;
+                    generateFactButton.disabled = false;
+                }
+            }
+            
+            async function generateFunFact() {
+                if (isTyping) return;
+
+                generateFactButton.disabled = true;
+                funFactDisplay.innerHTML = '> Menjalankan kueri ke server...<span class="blinking-cursor"></span>';
+
+                try {
+                    const prompt = "Berikan satu fakta menarik, singkat, dan informatif dalam Bahasa Indonesia tentang aset digital (seperti template, font, plugin), desain grafis, atau teknologi yang relevan dengan marketplace seperti Envato. Mulailah dengan 'Tahukah Anda...'";
+                    const payload = {
+                        contents: [{ role: "user", parts: [{ text: prompt }] }],
+                        generationConfig: { temperature: 0.8, topP: 1.0 }
+                    };
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${MY_GEMINI_API_KEY}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.error.message || `HTTP error! status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates[0]?.content?.parts[0]?.text) {
+                        const fact = result.candidates[0].content.parts[0].text;
+                        typeWriter(fact);
+                    } else {
+                        throw new Error('Respon tidak valid dari API.');
+                    }
+                } catch (error) {
+                    const errorMessage = `Error: ${error.message}. Gagal terhubung ke server.`;
+                    typeWriter(errorMessage);
+                }
+            }
+
+            generateFactButton.addEventListener('click', generateFunFact);
+        });
+    </script>
+</body>
+</html>
